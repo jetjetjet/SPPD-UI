@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Loader/>
     <div class="wrapper">
       <SidebarStyle  />
       <HeaderStyle1/>
@@ -15,17 +14,15 @@
 </template>
 <script>
 import {core} from "@/config/pluginInit"
-import Loader from '@/components/loader/Loader'
 import SidebarStyle from "@/components/partials/backend/SidebarStyle/SidebarStyle";
 import HeaderStyle1 from "@/components/partials/backend/HeaderStyle/HeaderStyle1";
 import FooterStyle from "@/components/partials/backend/FooterStyle/FooterStyle";
 export default {
-  name: 'Layout-2',
+  name: 'Layout',
   components: {
     HeaderStyle1,
     FooterStyle,
-    SidebarStyle,
-    Loader
+    SidebarStyle
   },
    mounted(){
     document.body.classList=''

@@ -5,8 +5,6 @@ import Vivus from 'vivus'
 if(typeof window !== 'undefined') {
   window.$ = $
   window.jQuery = $
-  require('select2')
-  require('datatables.net')
   require('waypoints/lib/noframework.waypoints.min')
 }
 export const core = {

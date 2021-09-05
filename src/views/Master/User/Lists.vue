@@ -5,7 +5,7 @@
         <div class="card card-block card-stretch card-height">
           <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-              <h4 class="card-title mb-0">Master User</h4>
+              <h4 class="card-title mb-0">Master Pegawai</h4>
             </div>
             <a :href="'/master/user/add'" class="btn btn-primary">
               Tambah Baru
@@ -79,7 +79,7 @@
           {
             label: 'id',
             field: 'id',
-            hidden: true
+            hidden: false
           }, {
             label: 'NIP',
             field: 'nip'
@@ -105,7 +105,7 @@
     },
     methods: {
       refreshLists(){
-        getDataService('/user-grid').then(data => {
+        getDataService('/user-grid').then( data => {
           this.rows = data.data
         })
       },

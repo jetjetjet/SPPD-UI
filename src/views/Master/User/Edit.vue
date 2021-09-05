@@ -21,7 +21,7 @@
 							<div class="card">
 								<div class="card-header d-flex justify-content-between">
 									<div class="mm-header-title">
-										<h4 class="card-title">Informasi Personal</h4>
+										<h4 class="card-title">Informasi Personal Pegawai</h4>
 									</div>
 								</div>
 								<div class="card-header">
@@ -51,8 +51,8 @@
 												<input type="text" class="form-control" id="phone" v-model="formProfile.phone">
 											</b-col>
 											<b-col md="6" class="mb-3">
-												<label for="ttl">Tgl. Lahir</label>
-												<flat-pickr class="form-control" :config="config" id="ttl" v-model="formProfile.ttl"></flat-pickr>
+												<label for="tgl_lahir">Tgl. Lahir</label>
+												<flat-pickr class="form-control" :config="config" id="tgl_lahir" v-model="formProfile.tgl_lahir"></flat-pickr>
 											</b-col>
 											<b-col md="12" class="form-group col-sm-6">
 												<label class="d-block">Jenis Kelamin:</label>
@@ -230,7 +230,7 @@ export default {
       _formData.append('nip', form.nip)
       _formData.append('full_name', form.full_name)
       _formData.append('email', form.email)
-      _formData.append('ttl', form.ttl)
+      _formData.append('tgl_lahir', form.tgl_lahir)
       _formData.append('jenis_kelamin', form.jenis_kelamin)
       _formData.append('phone', form.phone)
       _formData.append('address', form.address)

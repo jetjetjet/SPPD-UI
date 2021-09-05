@@ -4,26 +4,17 @@ import store from "../store";
 
 //Adding layouts router.
 const BlankLayout = () => import("@/layouts/BlankLayout")
-const Layout1 = () => import("@/layouts/backend/Layout-1")
+const Layout = () => import("@/layouts/backend/Layout")
 
 //Adding page content router.
-const Dashbord1 = () => import('@/views/backend/Dashboards/Dashbord1')
-
-//icon elements
-const Dripicons = () => import('@/views/backend/Icons/Dripicons')
-const FontAwsome = () => import('@/views/backend/Icons/FontAwsome')
-const LineAwsome = () => import('@/views/backend/Icons/LineAwsome')
-const Remixicons = () => import('@/views/backend/Icons/Remixicons')
+const Dashbord = () => import('@/views/Dashboard/Dashbord')
 
 //chart elements
-const AmChart = () => import('@/views/backend/Chart/AmChart')
-const ApexChart = () => import('@/views/backend/Chart/ApexChart')
-const HighChart = () => import('@/views/backend/Chart/HighChart')
-const MorrisChart = () => import('@/views/backend/Chart/MorrisChart')
+const HighChart = () => import('@/views/HighChart')
 
 //auth elements
 const Login = () => import('@/views/Auth/Login')
-const RecoverPassword = () => import('@/views/backend/Auth/RecoverPassword')
+const RecoverPassword = () => import('@/views/Auth/RecoverPassword')
 
 const JabatanList = () => import('@/views/Master/Jabatan/Lists')
 const JabatanEdit = () => import('@/views/Master/Jabatan/Edit')
@@ -85,54 +76,15 @@ const childRoute = () => [
   ///////////////////////////////////////////
   {
     path: '',
-    name: 'layout.dashboard1',
-    meta: {  name: 'Dashboard1', requiresAuth: true },
-    component: Dashbord1
-  },
-  {
-    path: 'icon-dripicons',
-    name: 'icon.dripicon',
-    meta: {  name: 'Dripicons ' },
-    component:Dripicons
-  },{
-    path: 'icon-fontawsome',
-    name: 'icon.fontawsome',
-    meta: {  name: 'FontAwsome ' },
-    component:FontAwsome
-  },{
-    path: 'icon-lineawsome',
-    name: 'icon.lineawsome',
-    meta: {  name: 'LineAwsome ' },
-    component:LineAwsome
-  },{
-    path: 'icon-remixicon',
-    name: 'icon.remixicon',
-    meta: {  name: 'Remixicon ' },
-    component:Remixicons
-  },
-  {
-    path: 'am-chart',
-    name: 'chart.amchart',
-    meta: {  name: 'Amchart' },
-    component:AmChart
-  },
-  {
-    path: 'apex-chart',
-    name: 'chart.apexchart',
-    meta: {  name: 'Apexchart' },
-    component:ApexChart
+    name: 'layout.dashboard',
+    meta: {  name: 'Dashboard', requiresAuth: true },
+    component: Dashbord
   },
   {
     path: 'high-chart',
     name: 'chart.highchart',
     meta: {  name: 'Highchart' },
     component:HighChart
-  },
-  {
-    path: 'morris-chart',
-    name: 'chart.morrischart',
-    meta: {  name: 'Morrischart' },
-    component:MorrisChart
   }
 
 ]
@@ -149,7 +101,7 @@ const routes = [
   {
     path: '/',
     name: '',
-    component: Layout1,
+    component: Layout,
     children: childRoute()
   },
   {
@@ -161,7 +113,7 @@ const routes = [
   {
     path: '/master',
     name: 'Master',
-    component: Layout1,
+    component: Layout,
     children: childMaster()
   },
   {

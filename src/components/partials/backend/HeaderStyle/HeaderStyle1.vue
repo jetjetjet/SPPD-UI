@@ -3,7 +3,7 @@
 	<div class="mm-navbar-custom">
 		<nav class="navbar navbar-expand-lg navbar-light p-0">
 			<div class="mm-navbar-logo d-flex align-items-center justify-content-between" @click="miniSidebar"> <i class="ri-menu-line wrapper-menu"></i>
-				<router-link :to="{name: 'layout.dashboard1'}" class="header-logo"> <img :src="sidelogo" class="img-fluid rounded-normal" alt="logo"> </router-link>
+				<router-link :to="{name: 'layout.dashboard'}" class="header-logo"> <img :src="sidelogo" class="img-fluid rounded-normal" alt="logo"> </router-link>
 			</div>
 			<div class="mm-search-bar device-search m-auto">
 			</div>
@@ -160,12 +160,12 @@ import Fullscreen from '../../../fullscreen/Fullscreen'
 import { mapGetters } from 'vuex'
 
 export default {
-    name:"HeaderStyle1",
-	components: {  Fullscreen},
+	name:"HeaderStyle1",
+	components: { Fullscreen },
     computed : {
 			...mapGetters({
-					logo:'darklogo',
-					sidelogo:'logo',
+				logo:'darklogo',
+				sidelogo:'logo',
 			}),
 			isLoggedIn : function(){ return this.$store.getters.isAuthenticated}
     },

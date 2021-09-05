@@ -5,7 +5,7 @@
         <div class="card card-block card-stretch card-height">
           <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-              <h4 class="card-title mb-0">Tabel Jabatan</h4>
+              <h4 class="card-title mb-0">Tabel Peran</h4>
             </div>
             <a :href="'/master/jabatan/add'" class="btn btn-primary">
               Tambah Baru

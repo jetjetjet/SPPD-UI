@@ -4,7 +4,7 @@
       <b-col sm="12" lg="12">
         <card>
           <template v-slot:headerTitle>
-            <h4 class="card-title">Ubah Peran</h4>
+            <h4 class="card-title">Tambah Peran</h4>
           </template>
           <template v-slot:body>
             <form>

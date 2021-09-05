@@ -4,7 +4,7 @@
       <b-col sm="12" lg="12">
         <card>
           <template v-slot:headerTitle>
-            <h4 class="card-title">Ubah User</h4>
+            <h4 class="card-title">Tambah Pegawai</h4>
           </template>
           <template v-slot:body>
             <form >
@@ -30,8 +30,8 @@
                   <input type="text" class="form-control" id="phone" v-model="form.phone">
                 </b-col>
                 <b-col md="6" class="mb-3">
-                  <label for="ttl">Tgl. Lahir</label>
-                  <flat-pickr class="form-control" :config="config" id="ttl" v-model="form.ttl"></flat-pickr>
+                  <label for="tgl_lahir">Tgl. Lahir</label>
+                  <flat-pickr class="form-control" :config="config" id="tgl_lahir" v-model="form.tgl_lahir"></flat-pickr>
                 </b-col>
                 <b-col md="12" class="form-group col-sm-6">
                   <label class="d-block">Jenis Kelamin:</label>
@@ -77,6 +77,9 @@ import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 
 export default {
+  created(){
+    document.title = "Tambah Pegawai"
+  },
   name:'UserAdd',
   data() {
     return {
@@ -88,7 +91,7 @@ export default {
         nip: null,
         full_name: null,
         email: null,
-        ttl: null,
+        tgl_lahir: null,
         jenis_kelamin: 'Laki-laki',
         phone: null,
         address: null,
@@ -114,7 +117,7 @@ export default {
       _formData.append('nip', form.nip)
       _formData.append('full_name', form.full_name)
       _formData.append('email', form.email)
-      _formData.append('ttl', form.ttl)
+      _formData.append('tgl_lahir', form.tgl_lahir)
       _formData.append('jenis_kelamin', form.jenis_kelamin)
       _formData.append('phone', form.phone)
       _formData.append('address', form.address)

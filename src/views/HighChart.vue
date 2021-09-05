@@ -17,7 +17,7 @@
 <script>
 import HighCharts from 'highcharts'
 import More from 'highcharts/highcharts-more'
-import HighChart from '../../../components/charts/HighChart'
+import HighChart from '../components/charts/HighChart'
 More(HighCharts)
 export default {
   name: 'HighCharts',
