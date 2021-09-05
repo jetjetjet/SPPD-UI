@@ -57,6 +57,19 @@
 						</li>
 					</b-collapse>
 					<b-collapse @shown="showCollapse('MasterData')" @hide="hideCollapse" tag="ul" id="MasterData" class="submenu" accordion="my-accordion" :visible="checkActive('masterData')">
+						<li :class="checkActive('Master.anggaran') ? 'active' : ''" >
+							<router-link :to="{ name: 'Master.anggaran'}" class="svg-icon"> 
+                <i class="">
+									<svg class="svg-icon" id="md-wil" xmlns="http://www.w3.org/2000/svg"
+										fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+											d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+									</svg>
+                </i> <span>Anggaran</span> 
+              </router-link>
+						</li>
+					</b-collapse>
+					<b-collapse @shown="showCollapse('MasterData')" @hide="hideCollapse" tag="ul" id="MasterData" class="submenu" accordion="my-accordion" :visible="checkActive('masterData')">
 						<li :class="checkActive('Master.jabatan') ? 'active' : ''" >
 							<router-link :to="{ name: 'Master.jabatan'}" class="svg-icon"> 
                 <i class="">
@@ -134,7 +147,7 @@ export default {
   data () {
     return{
       homeurl:'',
-      masterData:['Master.jabatan', 'Master.user'],
+      masterData:['Master.jabatan', 'Master.user', 'Master.Anggaran'],
       profile:['user-profile'],
       dashboards:['layout.dashboard'],
       charts:['chart.amchart','chart.apexchart','chart.highchart','chart.morrischart',],

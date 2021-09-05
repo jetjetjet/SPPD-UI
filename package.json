@@ -37,6 +37,7 @@
     "remixicon": "^2.5.0",
     "select2": "~4.0",
     "smooth-scrollbar": "^8.5.2",
+    "v-money": "^0.8.1",
     "vivus": "^0.4.5",
     "vue": "^2.6.11",
     "vue-flatpickr-component": "^8.1.7",

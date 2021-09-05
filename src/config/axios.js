@@ -1,6 +1,5 @@
 
 import axios from 'axios'
-import router from '../router'
 import store from '../store'
 import config from './config'
 
@@ -32,29 +31,15 @@ instance.interceptors.response.use((response) => {
   return response;
 }, function (error) {
   if (error) {
-    const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-      store.dispatch("LogOut");
-      return router.push("/login");
+    // console.log(error, error.config._retry)
+    // const originalRequest = error.config;
+    if (error.response.status === 401 ) {
+      window.localStorage.clear()
+      window.location = '/'
     }
+  } else {
+    return Promise.reject(error);
   }
-  // if (401 === error.response.status) {
-  //   logoutUserService()
-  //     .then((data) => {
-  //       this.alertError(data)
-  //       removeToken()
-  //       window.localStorage.clear()
-  //       window.location = '/'
-  //     })
-  //     .catch((e) => {
-  //       removeToken()
-  //       window.localStorage.clear()
-  //       window.location = '/'
-  //     });
-  // } else {
-  //   return Promise.reject(error);
-  // }
 });
 
 // axios.interceptors.response.use(undefined, function(error) {

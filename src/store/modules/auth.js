@@ -24,7 +24,7 @@ const actions = {
 
     await instance.post('/login', user).then(response => {
       if(response.data.success){
-        Vue.$toast.success('Berhasil Login! Tunggu sebentar')
+        Vue.$toast.success('Berhasil Login!')
         token = response.data.data.token
         dataUser = response.data.data
       } else {

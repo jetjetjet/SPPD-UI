@@ -30,8 +30,11 @@
                     </div>
                   </div> -->
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <button type="submit" class="btn btn-primary">Sign In</button>
+                
+                <div class="float-right">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
                 </div>
               </form>
             </div>

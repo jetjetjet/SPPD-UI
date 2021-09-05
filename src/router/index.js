@@ -16,6 +16,10 @@ const HighChart = () => import('@/views/HighChart')
 const Login = () => import('@/views/Auth/Login')
 const RecoverPassword = () => import('@/views/Auth/RecoverPassword')
 
+const AnggaranList = () => import('@/views/Master/Anggaran/Lists')
+const AnggaranAdd = () => import('@/views/Master/Anggaran/Add')
+const AnggaranEdit = () => import('@/views/Master/Anggaran/Edit')
+
 const JabatanList = () => import('@/views/Master/Jabatan/Lists')
 const JabatanEdit = () => import('@/views/Master/Jabatan/Edit')
 const JabatanAdd = () => import('@/views/Master/Jabatan/Add')
@@ -29,6 +33,24 @@ const UserAdd = () => import('@/views/Master/User/Add')
 Vue.use(VueRouter)
 
 const childMaster = () => [
+  {
+    path: 'anggaran',
+    name: 'Master.anggaran',
+    meta: { name : 'AnggaranList', requiresAuth: true},
+    component: AnggaranList
+  },
+  {
+    path: 'anggaran/edit/:id',
+    name: 'Edit.anggaran',
+    meta: { name : 'AnggaranEdit', requiresAuth: true},
+    component: AnggaranEdit
+  },
+  {
+    path: 'anggaran/add',
+    name: 'Add.anggaran',
+    meta: { name : 'AnggaranAdd', requiresAuth: true},
+    component: AnggaranAdd
+  },
   {
     path: 'jabatan',
     name: 'Master.jabatan',
@@ -46,7 +68,8 @@ const childMaster = () => [
     name: 'Add.jabatan',
     meta: { name : 'Master Jabatan', requiresAuth: true},
     component: JabatanAdd
-  },{
+  },
+  {
     path: 'user',
     name: 'Master.user',
     meta: { name : 'UserList', requiresAuth: true},

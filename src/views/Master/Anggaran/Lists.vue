@@ -5,9 +5,9 @@
         <div class="card card-block card-stretch card-height">
           <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-              <h4 class="card-title mb-0">Master Peran</h4>
+              <h4 class="card-title mb-0">Master Anggaran</h4>
             </div>
-            <a :href="'/master/jabatan/add'" class="btn btn-primary">
+            <a :href="'/master/anggaran/add'" class="btn btn-primary">
               Tambah Baru
             </a>
           </div>
@@ -33,7 +33,7 @@
             >
               <template slot="table-row" slot-scope="props">
                 <span v-if="props.column.field == 'action'">
-                  <b-button size="sm" :href="'/master/jabatan/edit/' + props.row.id"  variant="primary" class="mr-2" title="Edit">
+                  <b-button size="sm" :href="'/master/anggaran/edit/' + props.row.id"  variant="primary" class="mr-2" title="Edit">
                     <i class="dripicons dripicons-pencil"></i>
                   </b-button >
                   <b-button size="sm" @click="showDelete(props)" variant="danger" class="mr-2" title="Hapus">
@@ -47,8 +47,8 @@
             </vue-good-table>
           </div>
           <!-- MODAL DELETE -->
-          <b-modal :no-close-on-backdrop="true" id="modalDelete" title="Hapus Jabatan">
-            <p>Apakah anda yakin untuk menghapus jabatan <strong>{{ lblJabatan }}</strong> ?</p>
+          <b-modal :no-close-on-backdrop="true" id="modalDelete" title="Hapus Anggaran">
+            <p>Apakah anda yakin untuk menghapus anggaran <strong>{{ lblAnggaran }}</strong> ?</p>
             <template #modal-footer="{ cancel }">
               <b-button variant="primary" @click="cancel()">
                 Batal
@@ -67,25 +67,26 @@
 <script>
   import 'vue-good-table/dist/vue-good-table.css'
   import { VueGoodTable } from 'vue-good-table';
-  import { getDataService, postDataService, deleteDataService } from '../../../store/modules/crudservices'
+  import { getDataService, deleteDataService } from '../../../store/modules/crudservices'
 
   export default {
-    name:'JabatanList',
+    name:'AnggaranList',
     data () {
       return {
         modalTitle: '',
-        lblJabatan: '',
-        columns:[
-          {
-            label: 'id',
-            field: 'id',
-            hidden: true
+        lblAnggaran: '',
+        columns:[{
+            label: 'MAK',
+            field: 'mak'
           }, {
-            label: 'Nama Peran',
-            field: 'name'
+            label: 'Uraian',
+            field: 'uraian'
           }, {
-            label: 'Deskripsi Peran',
-            field: 'descr'
+            label: 'Pagu',
+            field: 'pagu'
+          }, {
+            label: 'Periode',
+            field: 'periode'
           }, {
             label: '',
             field: 'action',
@@ -102,30 +103,17 @@
     },
     methods: {
       refreshLists(){
-        getDataService('/role-grid').then(data => {
+        getDataService('/anggaran-grid').then(data => {
           this.rows = data.data
         })
       },
       showDelete(val){
-        this.lblJabatan = val.row.name
+        this.lblAnggaran = val.row.name
         this.form.id = val.row.id
         this.$bvModal.show('modalDelete')
       },
-      modalSave(){
-        const _formData = new FormData()
-        _formData.append('id', this.form.id ?? 0)
-        _formData.append('name', this.form.name)
-        _formData.append('descr', this.form.descr)
-
-        postDataService(_formData).then(response => {
-          console.log('res', response)
-          if(response.data.success)
-            this.$bvModal.hide('modalJabatan')
-            this.refreshLists()
-        })
-      },
       modalDelete(){
-        const url = '/role/' + this.form.id
+        const url = '/anggaran/' + this.form.id
         deleteDataService(url).then(response => {
           if(response.data.success)
             this.$bvModal.hide('modalDelete')
